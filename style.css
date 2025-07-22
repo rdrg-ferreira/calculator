@@ -65,9 +65,8 @@ button {
     height: auto;
 }
 
-#github-button {
+#github-button > a {
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding-top: 6px;
+    justify-content: center;
 }
