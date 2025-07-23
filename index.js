@@ -146,6 +146,10 @@ function createButtons() {
                 operate();
             }
         }
+
+        else if (button.id === "backspace") {
+            backspaceDisplay();
+        }
     });
 }
 
@@ -161,6 +165,13 @@ function showOnDisplay(element, result = false) {
 
 function clearDisplay() {
     display.innerText = "";
+}
+
+function backspaceDisplay() {
+    display.innerText = display.innerText
+                            .split("")
+                            .slice(0, display.innerText.length - 1)
+                            .join("");
 }
 
 createButtons();
