@@ -41,8 +41,9 @@ body {
     background-color: azure;
     text-align: right;
     width: 100%;
-    padding: 16px 8px;
+    padding: 24px 8px;
     font-size: 20px;
+    height: calc(24px * 3);
 }
 
 /* buttons */
@@ -69,4 +70,8 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+button:hover {
+    filter: brightness(0.90);
 }
