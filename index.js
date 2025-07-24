@@ -67,9 +67,7 @@ function getElementsOnDisplay() {
         elements.push(splitDisplay.slice(operatorIndex + 1).join(""));
     }
 
-    return elements.map((element) => {
-        return operatorList.includes(element) ? element : parseInt(element);
-    });
+    return elements;
 }
 
 function getOperatorCount() {
@@ -88,9 +86,25 @@ function isLastElementAnOperator() {
     return operatorList.includes(splitDisplay[splitDisplay.length - 1]);
 }
 
+function doesLastNumberHaveDecimal() {
+    const elementList = getElementsOnDisplay();
+
+    let lastNumberIndex = -1;
+    if (elementList.length === 1) lastNumberIndex = 0;
+    else if (elementList.length === 3) lastNumberIndex = 2;
+    else return;
+
+    return elementList[lastNumberIndex]
+        .split("").includes(".");
+}
+
 function operate() {
     // index 0 and 2 are the numbers and index 1 is the operator
-    const elementList = getElementsOnDisplay();
+    let elementList = getElementsOnDisplay();
+    
+    elementList = elementList.map((element) => {
+        return operatorList.includes(element) ? element : parseFloat(element);
+    });
     
     let result = 0;
     switch (elementList[1]) {
@@ -149,6 +163,12 @@ function createButtons() {
 
         else if (button.id === "backspace") {
             backspaceDisplay();
+        }
+
+        else if (button.id === "point") {
+            if (!doesLastNumberHaveDecimal() && !isLastElementAnOperator()) {
+                showOnDisplay(".");
+            }
         }
     });
 }
