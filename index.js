@@ -19,6 +19,7 @@ const operations = {"add": "+", "subtract": "-",
                     }};
 
 const operatorList = ["+", "-", "*", "/", "%"];
+let isResultOnDisplay = false;
 
 function add(n1, n2) {
     return n1 + n2;
@@ -167,7 +168,7 @@ function createButtons() {
         }
 
         else if (button.id === "point") {
-            if (!doesLastNumberHaveDecimal() && !isLastElementAnOperator()) {
+            if (!doesLastNumberHaveDecimal()) {
                 showOnDisplay(".");
             }
         }
@@ -178,12 +179,19 @@ function isDisplayOverflowning() {
     return display.scrollWidth > display.clientWidth;
 }
 
+function isElementANumber(element) {
+    return !operatorList.includes(element);
+}
+
 function showOnDisplay(element, result = false) {
     if (result) {
         display.innerText = element;
+        isResultOnDisplay = true;
     } else {
         if (!isDisplayOverflowning()) {
+            if (isResultOnDisplay && isElementANumber(element)) clearDisplay();
             display.innerText += element;
+            isResultOnDisplay = false;
         }
     }
 }
