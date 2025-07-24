@@ -150,6 +150,23 @@ function operate() {
 }
 
 function createButtons() {
+    buttonArea.addEventListener("mousedown", (e) => {
+        if (e.button == 0) {
+            e.target.classList.add("button-down");
+        }
+    });
+
+    buttonArea.addEventListener("mouseout", (e) => {
+        e.target.classList.remove("button-down");
+    });
+
+
+    buttonArea.addEventListener("mouseup", (e) => {
+        if (e.button == 0) {
+            e.target.classList.remove("button-down");
+        }
+    });
+
     buttonArea.addEventListener("click", (e) => {
         const button = e.target;
 

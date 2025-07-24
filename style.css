@@ -24,7 +24,7 @@ body {
     border: 3px solid rgb(241, 220, 192);
     border-radius: 10px;
     width: 400px;
-    padding: 16px;
+    padding: 28px;
     gap: 16px;
 }
 
@@ -43,7 +43,7 @@ body {
     width: 100%;
     padding: 24px 8px;
     font-size: 20px;
-    height: calc(24px * 3);
+    height: calc(24px * 2 + 3px * 2 + 20px);
     overflow: hidden;
 }
 
@@ -52,6 +52,7 @@ body {
 .button-area {
     display: flex;
     flex-wrap: wrap;
+    padding-top: 16px;
 }
 
 button {
@@ -60,10 +61,17 @@ button {
     aspect-ratio: 1/1;
     font-size: 24px;
     border-radius: 10px;
+    border: none;
+    border-bottom: 3px solid rgb(201, 193, 193);
+    border-right: 3px solid rgb(201, 193, 193);
+}
+
+#github-button {
+    background-color: orange;
 }
 
 #github-logo {
-    width: 28px;
+    width: 32px;
     height: auto;
 }
 
@@ -75,4 +83,17 @@ button {
 
 button:hover {
     filter: brightness(0.90);
+}
+
+.utility, .operator {
+    color: orange;
+}
+
+#equal {
+    background-color: orange;
+    color: azure;
+}
+
+.button-down {
+    border: none;
 }
