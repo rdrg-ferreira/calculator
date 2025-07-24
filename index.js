@@ -33,7 +33,8 @@ function multiply(n1, n2) {
 }
 
 function divide(n1, n2) {
-    return n1 / n2;
+    if (n2 === 0) return "Can't divide by 0";
+    else return n1 / n2;
 }
 
 function rest(n1, n2) {
