@@ -68,6 +68,8 @@ button {
 
 #github-button {
     background-color: orange;
+    border-bottom-color: rgb(185, 148, 45);
+    border-right-color: rgb(185, 148, 45);
 }
 
 #github-logo {
@@ -94,6 +96,8 @@ button:hover {
 #equal {
     background-color: orange;
     color: azure;
+    border-bottom-color: rgb(185, 148, 45);
+    border-right-color: rgb(185, 148, 45);
 }
 
 .button-down {
