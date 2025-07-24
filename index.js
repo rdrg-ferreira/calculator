@@ -173,13 +173,17 @@ function createButtons() {
     });
 }
 
-function showOnDisplay(element, result = false) {
-    if (display.innerText === "Can't divide by zero") clearDisplay();
+function isDisplayOverflowning() {
+    return display.scrollWidth > display.clientWidth;
+}
 
+function showOnDisplay(element, result = false) {
     if (result) {
         display.innerText = element;
     } else {
-        display.innerText += element;
+        if (!isDisplayOverflowning()) {
+            display.innerText += element;
+        }
     }
 }
 
