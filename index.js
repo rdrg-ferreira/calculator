@@ -42,6 +42,20 @@ function rest(n1, n2) {
     return n1 % n2;
 }
 
+function getDecimalCount(num) {
+    const str = num.toString();
+    const parts = str.split('.');
+    return parts[1] ? parts[1].length : 0;
+}
+
+function roundResult(result, n1, n2) {
+    const n1DecimalCount = getDecimalCount(n1);
+    const n2DecimalCount = getDecimalCount(n2);
+    const resultDecimalCount = Math.max(n1DecimalCount, n2DecimalCount);
+
+    return parseFloat(result.toFixed(resultDecimalCount));
+}
+
 function getElementsOnDisplay() {
     const splitDisplay = display.innerText.split("");
     
@@ -131,7 +145,8 @@ function operate() {
             break;
     }
 
-    showOnDisplay(result, true);
+    const roundedResult = roundResult(result, elementList[0], elementList[2]);
+    showOnDisplay(roundedResult, true);
 }
 
 function createButtons() {
