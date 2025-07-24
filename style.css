@@ -62,8 +62,8 @@ button {
     font-size: 24px;
     border-radius: 10px;
     border: none;
-    border-bottom: 3px solid rgb(201, 193, 193);
-    border-right: 3px solid rgb(201, 193, 193);
+    border-bottom: 3px solid orange;
+    border-right: 3px solid orange;
 }
 
 #github-button {
